@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Agency;
+use App\Models\Compagny;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,16 @@ class AgencySeeder extends Seeder
      */
     public function run()
     {
-        Agency::factory()->count(10)->create();
+        $compagnies = Compagny::all();
+
+        foreach ($compagnies as $key => $campagny) {
+            Agency::factory()
+                ->state([
+                    'compagny_id' => $campagny->id
+                ])
+                ->count(4)
+                ->create();
+        }
+
     }
 }

@@ -16,8 +16,9 @@ class AgencyFactory extends Factory
      */
     public function definition()
     {
+        $name = fake()->cityPrefix();
         return [
-            'name' => $this->faker->name
+            'name' => $name
         ];
     }
 }
