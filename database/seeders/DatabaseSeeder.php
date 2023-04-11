@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Campagny;
 use Illuminate\Database\Seeder;
 use Wave\Facades\Wave;
 
@@ -14,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(CampagnySeeder::class);
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(UserRolesTableSeeder::class);
