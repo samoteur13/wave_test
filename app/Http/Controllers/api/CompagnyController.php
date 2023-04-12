@@ -16,7 +16,7 @@ class CompagnyController extends Controller
      */
     public function index(): Collection
     {
-        return Compagny::all();
+        return Compagny::with('agencies','users')->get();
     }
 
     /**
@@ -36,9 +36,9 @@ class CompagnyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Compagny $compagny)
     {
-        //
+        return $compagny;
     }
 
     /**
