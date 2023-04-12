@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Models\Compagny;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CompagnyResource;
 use Illuminate\Database\Eloquent\Collection;
 
 class CompagnyController extends Controller
@@ -36,9 +37,9 @@ class CompagnyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Compagny $compagny)
+    public function show(Compagny $compagny): CompagnyResource
     {
-        return $compagny;
+        return new CompagnyResource($compagny);
     }
 
     /**
