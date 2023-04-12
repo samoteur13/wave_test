@@ -51,9 +51,10 @@ class CompagnyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompagnyRequest $compagnyRequest, Compagny $compagny)
     {
-        //
+        $compagny->update($compagnyRequest->all());
+        return "le film a était mis à jour";
     }
 
     /**
