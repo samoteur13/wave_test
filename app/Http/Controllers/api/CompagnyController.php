@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Models\Compagny;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CompagnyRequest;
 use App\Http\Resources\CompagnyResource;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -17,7 +18,7 @@ class CompagnyController extends Controller
      */
     public function index(): Collection
     {
-        return Compagny::with('agencies','users')->get();
+        return Compagny::with('agencies', 'users')->get();
     }
 
     /**
@@ -26,9 +27,10 @@ class CompagnyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompagnyRequest $compagnyRequest)
     {
-        //
+        Compagny::create($compagnyRequest->all());
+        return "la compagny $compagnyRequest->name a est ajouter";
     }
 
     /**
@@ -63,6 +65,6 @@ class CompagnyController extends Controller
     public function destroy(Compagny $compagny)
     {
         $compagny->delete();
-        return 'delete succes';
+        return "delete succes $compagny";
     }
 }
