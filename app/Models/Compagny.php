@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Compagny extends Model
 {
     use HasFactory;
-
+    protected $hidden = ['created_at', 'updated_at'];
+    
     public function agencies(): HasMany
     {
         return $this->hasMany(Agency::class);

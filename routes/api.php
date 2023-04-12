@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CompagnyController;
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::apiResource('compagnies',CompagnyController::class);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return auth()->user();
