@@ -14,7 +14,10 @@ use Illuminate\Http\Request;
 |
 */
 
+
+// BROWSE
 Route::apiResource('compagnies',CompagnyController::class);
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return auth()->user();

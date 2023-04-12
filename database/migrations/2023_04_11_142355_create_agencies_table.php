@@ -20,8 +20,8 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('compagny_id')
                 ->constrained()
-                ->onUpdate('restrict')
-                ->onDelete('restrict');            
+                ->onUpdate('cascade')
+                ->onDelete('cascade');            
         });
     }
 
