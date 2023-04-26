@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\api\CompagnyController;
-use App\Http\Controllers\ResetPasswordController;
+// use App\Http\Controllers\api\auth\ForgotPasswordController;
+// use App\Http\Controllers\Auth\ ;
+use App\Http\Controllers\api\ForgotPasswordController;
+use App\Http\Controllers\api\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +22,9 @@ use App\Http\Controllers\ResetPasswordController;
 // BROWSE
 Route::apiResource('compagnies',CompagnyController::class);
 
-Route::post('sendPasswordResetLink', [ResetPasswordController::class, 'sendResetLinkEmail']);
+Route::post('sendPasswordResetLink', [ForgotPasswordController::class, 'sendResetLinkEmail']);
+Route::post('resetPassword', [ResetPasswordController::class, 'reset']);
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return auth()->user();
